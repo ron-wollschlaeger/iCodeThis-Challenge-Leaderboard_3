@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iCodeThis - Challenge: Leaderboard 3</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <main class="font-body relative flex min-h-screen items-center justify-center bg-gradient-to-tr from-[#020F27] to-[#AED8CD] font-light text-white">
+
+        <!-- Funny Background Stuff - START -->
+        <div
+            class="bg-center[mask-image:linear-gradient(white,rgba(255,255,255,10))] absolute inset-0 z-0 animate-pulse overflow-hidden">
+            <svg class="rotate-6 scale-150 stroke-white/10 opacity-10" width="100%" height="100%"
+                xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="smallGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+                        <path d="M 8 0 L 0 0 0 8" fill="none" stroke="white" stroke-width="0.5" />
+                    </pattern>
+                    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                        <rect width="80" height="80" fill="url(#smallGrid)" />
+                        <path d="M 80 0 L 0 0 0 80" fill="none" stroke="white" stroke-width="0.5" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+
+        <div id="particle-container">
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+            <div class="particle bg-white/25"></div>
+        </div>
+        <!-- Funny Background Stuff - END -->
+
+        <div class="z-10 w-full max-w-[1024px] bg-white/10 shadow-2xl backdrop-blur-sm sm:rounded-md">
+            <div class="my-2 bg-[#020F27] px-12 pb-5 pt-10 sm:m-2 sm:rounded-md">
+                <ul class="mb-12 flex justify-center gap-3 font-normal sm:gap-6 md:justify-end">
+                    <li class="rounded-xl bg-white/20 px-3 hover:cursor-pointer hover:text-[#FE5335]">Leaderboard</li>
+                    <span class="hidden sm:block">|</span>
+                    <li class="hover:cursor-pointer hover:text-[#FE5335]">Routes</li>
+                    <span class="hidden sm:block">|</span>
+                    <li class="hover:cursor-pointer hover:text-[#FE5335]">Live</li>
+                    <span class="hidden sm:block">|</span>
+                    <li class="hover:cursor-pointer hover:text-[#FE5335]">Events</li>
+                </ul>
+
+                <ul class="flex justify-center gap-3 text-xs font-normal sm:text-base md:justify-start">
+                    <li class="hover:cursor-pointer hover:text-[#FE5335]">Week</li>
+                    <span class="hidden sm:block">|</span>
+                    <li class="hover:cursor-pointer hover:text-[#FE5335]">Month</li>
+                    <span class="hidden sm:block">|</span>
+                    <li class="hover:cursor-pointer hover:text-[#FE5335]">Year</li>
+                    <span class="hidden sm:block">|</span>
+                    <li class="rounded-xl bg-white/20 px-3 hover:cursor-pointer hover:text-[#FE5335]">All time</li>
+                </ul>
+            </div>
+
+            <div class="mb-2 grid grid-cols-4 grid-rows-[40px_1fr] sm:grid-rows-[60px_1fr]">
+                <div
+                    class="font-header ms-2 flex items-center justify-center rounded-l-md bg-[#FE5335] text-xs font-medium sm:text-lg">
+                    <span>Rank</span>
+                </div>
+                <div class="font-header flex items-center justify-center bg-[#FE5335] text-xs font-medium sm:text-lg">
+                    <span>Player</span>
+                </div>
+                <div class="font-header flex items-center justify-center bg-[#FE5335] text-xs font-medium sm:text-lg">
+                    <span>Likes</span>
+                </div>
+                <div
+                    class="font-header me-2 flex items-center justify-center rounded-r-md bg-[#FE5335] text-xs font-medium sm:text-lg">
+                    <span>Challenges</span>
+                </div>
+
+                <div class="ms-2 flex items-center justify-center gap-4 p-6">
+                    <span class="text-4xl font-bold">1</span>
+                    <img class="hidden max-h-32 max-w-full rounded-lg bg-[#020F27] sm:block" src="https://shismqklzntzxworibfn.supabase.co/storage/v1/object/public/avatars/6d728715-deeb-49db-b24a-cdd3f30680af.jpg" alt="Avatar from Ansarullah on iCodeThis.com" />
+                </div>
+                <div class="flex items-center justify-center">
+                    <span class="font-bold md:text-xl">Ansarullah</span>
+                </div>
+                <div class="flex items-center justify-center">
+                    <span class="font-bold md:text-xl">1.894</span>
+                </div>
+                <div class="me-2 flex items-center justify-center">
+                    <span class="font-bold md:text-xl">187</span>
+                </div>
+
+                <div class="ms-2 flex items-center justify-center gap-4 rounded-l-md bg-white/10 p-6">
+                    <span class="text-4xl font-bold">2</span>
+                    <img class="hidden max-h-32 max-w-full rounded-lg bg-[#020F27] sm:block" src="https://shismqklzntzxworibfn.supabase.co/storage/v1/object/public/avatars/3c467dfe-3c18-4d4a-9387-70cbe4429f11.png" alt="Avatar from Kamil on iCodeThis.com" />
+                </div>
+                <div class="flex items-center justify-center bg-white/10">
+                    <span class="font-bold md:text-xl">Kamil</span>
+                </div>
+                <div class="flex items-center justify-center bg-white/10">
+                    <span class="font-bold md:text-xl">869</span>
+                </div>
+                <div class="me-2 flex items-center justify-center rounded-r-md bg-white/10">
+                    <span class="font-bold md:text-xl">187</span>
+                </div>
+
+                <div class="ms-2 flex items-center justify-center gap-4 p-6">
+                    <span class="text-4xl font-bold">3</span>
+                    <img class="hidden max-h-32 max-w-full rounded-lg bg-[#020F27] sm:block" src="https://shismqklzntzxworibfn.supabase.co/storage/v1/object/public/avatars/cdd412bf-6af3-41c9-b1f4-72c86ccc2791.jpg" alt="Avatar from Bradon on iCodeThis.com" />
+                </div>
+                <div class="flex items-center justify-center">
+                    <span class="font-bold md:text-xl">Bradon</span>
+                </div>
+                <div class="flex items-center justify-center">
+                    <span class="font-bold md:text-xl">724</span>
+                </div>
+                <div class="me-2 flex items-center justify-center">
+                    <span class="font-bold md:text-xl">103</span>
+                </div>
+
+                <div class="ms-2 flex items-center justify-center gap-4 rounded-l-md bg-white/10 p-6">
+                    <span class="text-4xl font-bold">4</span>
+                    <img class="hidden max-h-32 max-w-full rounded-lg bg-[#020F27] sm:block" src="https://shismqklzntzxworibfn.supabase.co/storage/v1/object/public/avatars/888e7b16-fa69-4576-9a45-d8f4fe6f6687.png" alt="Avatar from Chris on iCodeThis.com" />
+                </div>
+                <div class="flex items-center justify-center bg-white/10">
+                    <span class="font-bold md:text-xl">Chris</span>
+                </div>
+                <div class="flex items-center justify-center bg-white/10">
+                    <span class="font-bold md:text-xl">603</span>
+                </div>
+                <div class="me-2 flex items-center justify-center rounded-r-md bg-white/10">
+                    <span class="font-bold md:text-xl">116</span>
+                </div>
+            </div>
+
+            <div class="absolute inset-x-0 mx-auto mt-2 h-[10px] w-[99%] rounded-sm bg-[#FE5335] drop-shadow-lg"></div>
+        </div>
+        
+    </main>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
